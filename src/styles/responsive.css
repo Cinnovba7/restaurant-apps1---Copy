@@ -1,0 +1,74 @@
+@media screen and (min-width: 650px) {
+    .app-bar {
+      grid-template-columns: 1fr auto;
+      padding: 8px 32px;
+    }
+   
+    .app-bar .app-bar__brand h1 {
+      font-size: 1.5em;
+    }
+   
+    .app-bar .app-bar__menu {
+      display: none;
+    }
+    
+    .app-bar .app-bar__navigation {
+      position: static;
+      width: 100%;
+    }
+   
+    .app-bar .app-bar__navigation ul li {
+      display: inline-block;
+    }
+   
+    .app-bar .app-bar__navigation ul li a {
+      display: inline-block;
+      width: 120px;
+      text-align: center;
+      margin: 0;
+    }
+   
+    .restaurant-list {
+      grid-template-columns: 1fr 1fr;
+    }
+   
+    .restaurants-list {
+      grid-template-columns: auto 1fr;
+    }
+    .review-container {
+      max-width: 100%; /* Mengisi lebar penuh layar ponsel */
+      margin: 10px auto; /* Memastikan berada di tengah horizontal */
+    }
+  
+    /* Mengatur lebar elemen input agar penuh lebar layar ponsel */
+    #review-name,
+    #review-text {
+      width: 100%;
+    }
+    
+  }
+  
+   
+  @media screen and (min-width: 800px) {
+    .app-bar .app-bar__brand h1 {
+      font-size: 2em;
+    }
+  }
+   
+  @media screen and (min-width: 850px) {
+    .restaurant-list{
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+   
+  @media screen and (min-width: 1200px) {
+    .restaurant-list{
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+   
+  @media screen and (min-width: 1600px) {
+    .restaurant-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+  }
