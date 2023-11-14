@@ -24,7 +24,7 @@ const Detail = {
       <textarea id="review-text" rows="4" required></textarea>
     </div>
     <div>
-      <button type="submit" class="btn-submit">Submit</button>
+      <button type="submit" class="btn-submit" id="btn-submit">Submit</button>
     </div>
   </form>
 </div>
@@ -63,9 +63,9 @@ const Detail = {
      <h3>Customer Reviews</h3>
     <ul class="restaurant__reviews">
 ${restaurant.customerReviews.map((review) => `
-  <li>
-    <h4>${review.name}</h4>
-    <p>${review.review}</p>
+  <li class="reviewsItem">
+    <h4 class="contentName">${review.name}</h4>
+    <p class="contentReview">${review.review}</p>
   </li>
 `).join('')}
 </ul>
