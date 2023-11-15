@@ -1,33 +1,35 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable linebreak-style */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable linebreak-style */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable linebreak-style */
-import CacheHelper from './utils/cache-helper';
+import { precacheAndRoute } from 'workbox-precaching';
+import { registerRoute, Route } from 'workbox-routing';
+import { StaleWhileRevalidate } from 'workbox-strategies';
 
-const assetsToCache = [
-  './',
-  './icons/icon-72x72.png',
-  './icons/icon-96x96.png',
-  './icons/icon-128x128.png',
-  './icons/icon-144x144.png',
-  './icons/icon-152x152.png',
-  './icons/icon-192x192.png',
-  './icons/icon-384x384.png',
-  './icons/icon-512x512.png',
-  './index.html',
-  './logooo.png',
-  './app.bundle.js',
-  './app.webmanifest',
-  './sw.bundle.js',
-];
+// Do precaching
+precacheAndRoute(self.__WB_MANIFEST);
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(CacheHelper.cachingAppShell([...assetsToCache]));
-});
+const restaurantdbApi = new Route(
+  ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
+  new StaleWhileRevalidate({
+    cacheName: 'restaurantdb-api',
+  }),
+);
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(CacheHelper.deleteOldCache());
-});
+const restaurantImageApi = new Route(
+  ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/images/large/'),
+  new StaleWhileRevalidate({
+    cacheName: 'restaurantdb-image-api',
+  }),
+);
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(CacheHelper.revalidateCache(event.request));
+registerRoute(restaurantdbApi);
+registerRoute(restaurantImageApi);
+
+self.addEventListener('install', () => {
+  console.log('Service Worker: Installed');
+  // self.skipWaiting();
 });
