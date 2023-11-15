@@ -47,8 +47,6 @@
     }
     
   }
-  
-   
   @media screen and (min-width: 800px) {
     .app-bar .app-bar__brand h1 {
       font-size: 2em;
@@ -72,3 +70,4 @@
         grid-template-columns: repeat(5, 1fr);
     }
   }
+  

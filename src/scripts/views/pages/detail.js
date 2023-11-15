@@ -41,8 +41,13 @@ const Detail = {
     const createRestaurantDetailTemplate = (restaurant) => `
     <div class="restaurant-detail">
     <h2 class="restaurant__title">${restaurant.name}</h2>
-    <img crossorigin="anonymous" class="restaurant__poster lazyload" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}" />
-    <span class="restaurant__rating">⭐️ ${restaurant.rating}</span>
+    <img
+    crossorigin="anonymous"
+    class="restaurant__poster lazyload"
+    data-src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}"
+    alt="${restaurant.name}"
+  />
+      <span class="restaurant__rating">⭐️ ${restaurant.rating}</span>
     <div class="restaurant__info">
       <h4>City : <span>${restaurant.city}<span></h4>
       <h4>Address : <span>${restaurant.address}<span></h4>

@@ -19,11 +19,17 @@ body {
   min-height: 400px;
   width: 100%;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image_4.jpg");
+  background-image: url("../public/images/hero-image_4-large.jpg");
   background-position: center;
   background-size: cover ;
   background-color: green;
   background-repeat: no-repeat;
+}
+  
+@media screen and (max-width: 767px) {
+  .hero {
+    background-image: url("../public/images/hero-image_4-small.jpg");
+  }
 }
 
 .hero-inner {

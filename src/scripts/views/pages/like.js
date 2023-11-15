@@ -23,8 +23,12 @@ const Like = {
       restaurantList.forEach((restaurants) => {
         restoContainer.innerHTML += `
             <div class="restaurant-card" tabindex="0">
-              <img crossorigin="anonymous" class="movie-item__header__poster lazyload" alt="${restaurants.name}"
-                   src="${CONFIG.BASE_IMAGE_URL + restaurants.pictureId}">
+            <img
+            crossorigin="anonymous"
+            class="restaurant__poster lazyload"
+            data-src="${CONFIG.BASE_IMAGE_URL + restaurants.pictureId}"
+            alt="${restaurants.name}"
+          />
               <h3 tabindex="0">⭐️ ${restaurants.rating}</h3>
               <h4><a href="/#/detail/${restaurants.id}" tabindex="0">${restaurants.name}</a></h4>
               <h5>Description:</h5>
